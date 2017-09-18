@@ -17,6 +17,12 @@ describe Api::V1::UseCasesController, type: :controller do
         parsed_body = JSON.parse(response.body)
         expect(parsed_body.length).to eq(3)
       end
+
+      it 'get only first page' do
+        get :index, params: { page: 1, per_page: 2}
+        parsed_body = JSON.parse(response.body)
+        expect(parsed_body.length).to eq(2)
+      end
     end
   end
 end

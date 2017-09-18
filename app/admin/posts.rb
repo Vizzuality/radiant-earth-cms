@@ -12,4 +12,16 @@ ActiveAdmin.register Post do
 #   permitted
 # end
 
+  permit_params :title, :url, :image, :short_description, :video_url
+
+  form do |f|
+    f.inputs do
+      f.input :title
+      f.input :url
+      f.input :image, as: :file
+      f.input :short_description
+      f.input :video_url
+      f.actions
+    end
+  end
 end

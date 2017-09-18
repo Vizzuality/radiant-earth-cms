@@ -8,6 +8,7 @@
 * Devise for authentication
 * Active Models Serializers to serialize the API
 * PostgreSQL
+* Paperclip for attachment management
 
 
 ## Setting up for development
@@ -37,8 +38,7 @@ model are:
 * category [string] (one of the ones specified inside: [app/models/member.rb](app/models/member.rb) in the constant `CATEGORIES`
 * description [text]
 * is_board_member [boolean] (A user might be in the `Staff` category and also be a `Board Member`). Board members that are just Board members should have this flag set to true and have category `Board of Directors`
-
-*TODO*: Still to add: picture attachment.
+* image [file attachment]
 
 ### Posts
 
@@ -50,9 +50,7 @@ The attributes are:
 * title [string]
 * short_description [text]
 * video_url [string] (if there's a video to be displayed).
-
-
-*TODO*: Still to add: picture attachment;
+* image [file attachment]
 
 
 ### Use Cases
@@ -65,8 +63,7 @@ attributes:
 * description [text]
 * signature [string]
 * video_url [string] (if there's a video to be displayed).
-
-*TODO*: still to add: picture_attachment.
+* image[file attachment]
 
 
 ## The API

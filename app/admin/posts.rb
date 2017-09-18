@@ -20,7 +20,7 @@ ActiveAdmin.register Post do
       f.input :url
       f.input :image, as: :file
       f.input :short_description
-      f.input :category, label: 'Display in category', as: :select,
+      f.input :category, as: :select,
         collection: Post::CATEGORIES
       f.input :video_url
       f.actions

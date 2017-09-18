@@ -51,6 +51,7 @@ The attributes are:
 * short_description [text]
 * video_url [string] (if there's a video to be displayed).
 * image [file attachment]
+* category [string] (one of the ones specified inside: [app/models/post.rb](app/models/post.rb) in the constant `CATEGORIES`
 
 
 ### Use Cases
@@ -73,9 +74,10 @@ will be primarily consumed by Radiant.Earth's marketing website. The existing
 endpoints are:
 
 
-`GET /api/v1/posts`
+`GET /api/v1/posts?category=y`
 
-Returns all the posts sorted by `created_at` date. *TODO*: Add pagination.
+Returns all the posts sorted by `created_at` date. This endpoint also allows
+filtering by the attribute _category_. *TODO*: Add pagination.
 
 
 `GET /api/v1/members?is_board_member=x&category=y`

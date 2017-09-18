@@ -70,24 +70,38 @@ attributes:
 ## The API
 
 This project includes a simple API that exposes all types of content and which
-will be primarily consumed by Radiant.Earth's marketing website. The existing
-endpoints are:
+will be primarily consumed by Radiant.Earth's marketing website.
 
+
+The existing endpoints are:
+
+### Posts
 
 `GET /api/v1/posts?category=y`
 
 Returns all the posts sorted by `created_at` date. This endpoint also allows
-filtering by the attribute _category_. *TODO*: Add pagination.
+filtering by the attribute _category_.
 
+Posts can be paginated by passing the params:
+
+* page=x
+* per_page=y (default 25 per page)
+
+### Members
 
 `GET /api/v1/members?is_board_member=x&category=y`
 
 Returns all members sorted by `name`. This endpoint also allows filtering by the
-attributes _is_board_member_ and _category_ *TODO*: might be relevant to add a different
-type of grouping.
+attributes _is_board_member_ and _category_.
 
+### Use Cases
 
 `GET /api/v1/use_cases`
 
 Returns all use_cases sorted by `created_at` date. *TODO* Might be relevant to
 add pagination and some kind of filtering.
+
+Use cases can be paginated by passing the params:
+
+* page=x
+* per_page=y (default 25 per page)

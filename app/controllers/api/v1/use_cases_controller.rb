@@ -3,7 +3,7 @@ module Api
     class UseCasesController < ApiController
       def index
         use_cases = UseCase.order(created_at: :asc)
-        render json: use_cases
+        paginate json: use_cases
       end
     end
   end

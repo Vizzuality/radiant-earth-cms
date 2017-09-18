@@ -3,7 +3,7 @@ module Api
     class PostsController < ApiController
       def index
         posts = Post.order(created_at: :asc).where(filter_params)
-        render json: posts
+        paginate json: posts
       end
 
       private

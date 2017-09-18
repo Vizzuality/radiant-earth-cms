@@ -15,8 +15,11 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 
 gem 'active_model_serializers', '~> 0.10.0'
-
 gem "paperclip", "~> 5.0.0"
+gem 'kaminari'
+
+# API pagination
+gem 'api-pagination'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'

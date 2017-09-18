@@ -31,12 +31,12 @@ This CMS is very simple and includes three types of data:
 Used to represent staff, board of directors and others. The attributes for this
 model are:
 
-* name
-* email
-* title
-* category (one of the ones specified inside: [app/models/member.rb](app/models/member.rb) in the constant `CATEGORIES`
-* description
-* is_board_member (A user might be in the `Staff` category and also be a `Board Member`). Board members that are just Board members should have this flag set to true and have category `Board of Directors`
+* name [string]
+* email [string]
+* title [string]
+* category [string] (one of the ones specified inside: [app/models/member.rb](app/models/member.rb) in the constant `CATEGORIES`
+* description [text]
+* is_board_member [boolean] (A user might be in the `Staff` category and also be a `Board Member`). Board members that are just Board members should have this flag set to true and have category `Board of Directors`
 
 *TODO*: Still to add: picture attachment.
 
@@ -46,10 +46,10 @@ Used to represent stubs of news articles, blog posts and other relevant links,
 content will be stubbed in this project and linked to the source material.
 The attributes are:
 
-* url (of the original content)
-* title
-* short_description
-* video_url (if there's a video to be displayed).
+* url [string] (of the original content)
+* title [string]
+* short_description [text]
+* video_url [string] (if there's a video to be displayed).
 
 
 *TODO*: Still to add: picture attachment;
@@ -60,11 +60,11 @@ The attributes are:
 Represent examples of use cases and community testimonials. Include the following
 attributes:
 
-* author
-* quote
-* description
-* signature
-* video_url (if there's a video to be displayed).
+* author [string]
+* quote [string]
+* description [text]
+* signature [string]
+* video_url [string] (if there's a video to be displayed).
 
 *TODO*: still to add: picture_attachment.
 
@@ -81,10 +81,11 @@ endpoints are:
 Returns all the posts sorted by `created_at` date. *TODO*: Add pagination.
 
 
-`GET /api/v1/members`
+`GET /api/v1/members?is_board_member=x&category=y`
 
-Returns all members sorted by `name`. *TODO*: might be relevant to add a different
-type of grouping or filtering.
+Returns all members sorted by `name`. This endpoint also allows filtering by the
+attributes _is_board_member_ and _category_ *TODO*: might be relevant to add a different
+type of grouping.
 
 
 `GET /api/v1/use_cases`

@@ -2,6 +2,7 @@
 
 ## Dependencies
 
+* Ruby 2.4.1
 * Rails 5.1.3
 * Rails ActiveAdmin
 * Devise for authentication

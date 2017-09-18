@@ -3,9 +3,9 @@ require 'rails_helper'
 describe Api::V1::MembersController, type: :controller do
   context do
     let!(:some_members) {
-      FactoryGirl.create_list(:member, 2)
+      FactoryGirl.create_list(:member, 2, category: 'Staff')
       FactoryGirl.create(:member, category: 'Interns')
-      FactoryGirl.create(:member, is_board_member: true)
+      FactoryGirl.create(:member, is_board_member: true, category: 'Staff')
     }
 
     describe 'GET index' do

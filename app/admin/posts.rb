@@ -12,7 +12,7 @@ ActiveAdmin.register Post do
 #   permitted
 # end
 
-  permit_params :title, :url, :image, :short_description, :video_url
+  permit_params :title, :url, :image, :short_description, :video_url, :category
 
   form do |f|
     f.inputs do
@@ -20,6 +20,8 @@ ActiveAdmin.register Post do
       f.input :url
       f.input :image, as: :file
       f.input :short_description
+      f.input :category, label: 'Display in category', as: :select,
+        collection: Post::CATEGORIES
       f.input :video_url
       f.actions
     end

@@ -18,10 +18,7 @@ ActiveAdmin.register Member do
       f.input :title
       f.input :description
       f.input :category, label: 'Display in category', as: :select,
-        collection: {'Staff' => 0,
-                     'Board of Directors' => 1,
-                     'Fellows' => 2,
-                     'Interns' => 3},
+        collection: Member::CATEGORIES,
         hint: 'If both in the board and staff, select Staff and tick the checkbox bellow'
       f.input :is_board_member
     end

@@ -34,7 +34,7 @@ model are:
 * name
 * email
 * title
-* category (one of the ones specified inside: `app/models/member.rb` in the constant `CATEGORIES`
+* category (one of the ones specified inside: [app/models/member.rb](`app/models/member.rb`) in the constant `CATEGORIES`
 * description
 * is_board_member (A user might be in the `Staff` category and also be a `Board Member`). Board members that are just Board members should have this flag set to true and have category `Board of Directors`
 

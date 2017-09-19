@@ -22,6 +22,8 @@ ActiveAdmin.register UseCase do
       f.input :signature
       f.input :image, as: :file
       f.input :description
+      f.input :category, as: :select,
+        collection: UseCase::CATEGORIES
       f.input :video_url
       f.actions
     end

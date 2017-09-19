@@ -65,6 +65,7 @@ attributes:
 * signature [string]
 * video_url [string] (if there's a video to be displayed).
 * image[file attachment]
+* category [string] (one of the ones specified inside: [app/models/use_case.rb](app/models/use_case.rb) in the constant `CATEGORIES`
 
 
 ## The API
@@ -96,10 +97,10 @@ attributes _is_board_member_ and _category_.
 
 ### Use Cases
 
-`GET /api/v1/use_cases`
+`GET /api/v1/use_cases?category=y`
 
-Returns all use_cases sorted by `created_at` date. *TODO* Might be relevant to
-add pagination and some kind of filtering.
+Returns all use_cases sorted by `created_at` date. This endpoint also allows
+filtering by the attribute _category_.
 
 Use cases can be paginated by passing the params:
 

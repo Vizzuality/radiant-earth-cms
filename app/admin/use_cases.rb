@@ -13,7 +13,7 @@ ActiveAdmin.register UseCase do
 # end
 
   permit_params :author, :quote, :description, :signature, :video_url,
-    :image
+    :image, :category
 
   form do |f|
     f.inputs do

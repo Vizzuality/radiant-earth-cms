@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :members, only: [:index]
       resources :use_cases, only: [:index]
       resources :posts, only: [:index]
+      resources :vacancies, only: [:index]
     end
   end
 end

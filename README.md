@@ -67,6 +67,13 @@ attributes:
 * image[file attachment]
 * category [string] (one of the ones specified inside: [app/models/use_case.rb](app/models/use_case.rb) in the constant `CATEGORIES`
 
+### Vacancies
+
+Represent vacancies at Radiant.Eearth. Include the following attributes:
+
+* title [string]
+* url [string]
+* active [boolean]
 
 ## The API
 
@@ -103,6 +110,18 @@ Returns all use_cases sorted by `created_at` date. This endpoint also allows
 filtering by the attribute _category_.
 
 Use cases can be paginated by passing the params:
+
+* page=x
+* per_page=y (default 25 per page)
+
+
+### Vacancies
+
+`GET /api/v1/vacancies`
+
+Returns all the active vacancies, sorted by `created_at` date.
+
+Vacancies can be paginated by passing the params:
 
 * page=x
 * per_page=y (default 25 per page)

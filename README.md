@@ -4,11 +4,11 @@
 
 * Ruby 2.4.1
 * Rails 5.1.3
-* Rails ActiveAdmin
-* Devise for authentication
-* Active Models Serializers to serialize the API
+* [Rails ActiveAdmin](https://activeadmin.info/)
+* [Devise for authentication](https://github.com/plataformatec/devise)
+* [Active Models Serializers to serialize the API responses](https://github.com/rails-api/active_model_serializers)
 * PostgreSQL
-* Paperclip for attachment management
+* [Paperclip for attachment management](https://github.com/thoughtbot/paperclip)
 
 
 ## Setting up for development
@@ -21,6 +21,35 @@
 6. `rails db:seed` # sets an admin user: admin@example.com ; password
 7. `rails server`
 8. Point your browser to `http://localhost:3000/admin`
+
+## Deployment
+
+When deploying this application on a server besides having ruby, postgresql and
+the necessary gens installed (with `bundle install`), you will also need to
+make sure to have a database available and to run the migrations each time
+a new deployment happens. Besides this the app also uses the Rails Asset Pipeline
+so assets need to be precompiled after each new deploy, with the following command:
+
+`rails assets:precompile`
+
+[Read more about the assets pipeline.](http://guides.rubyonrails.org/asset_pipeline.html)
+
+You will also need to have the environment variable: `RAILS_ENV` set to `production`:
+
+`export RAILS_ENV=production`
+
+If you prefer not to have this set for the whole system you can prefix all the
+rails commands with `RAILS_ENV=production rails [command]`.
+
+Example sequence of commands on our automatic deploy pipeline:
+
+```
+rails db:create
+rails db:migrate
+rake assets:precompile
+rails server
+```
+
 
 
 ## Database Models

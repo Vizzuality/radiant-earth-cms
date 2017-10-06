@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
-  CATEGORIES = ['Blog post', 'Facebook', 'Medium', 'News article', 'Twitter']
+  CATEGORIES = ['Blog post', 'Facebook', 'Feature', 'In conversation',
+                'Medium', 'News', 'Twitter']
 
   has_attached_file :image
   validates_attachment :image,

@@ -3,10 +3,10 @@ module Api
     class MembersController < ApiController
       def index
         members = Member.where(filter_params)
-        if params[:is_board_member]
-          members.order("ORDER BY substring(name, '([^[:space:]]+)$')")
+        members = if params[:is_board_member]
+          members.order("substring(name, '([^[:space:]]+)$') ASC")
         else
-          members.order(:name)
+          members.order(name: :asc)
         end
         render json: members
       end

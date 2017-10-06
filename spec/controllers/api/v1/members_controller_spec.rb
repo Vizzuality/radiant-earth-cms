@@ -3,8 +3,9 @@ require 'rails_helper'
 describe Api::V1::MembersController, type: :controller do
   context do
     let!(:some_members) {
-      FactoryGirl.create_list(:member, 2, category: 'Staff')
-      FactoryGirl.create(:member, category: 'Interns')
+      FactoryGirl.create(:member, name: 'Manuel Manuel', category: 'Staff')
+      FactoryGirl.create(:member, name: 'Anual Manual', category: 'Staff')
+      FactoryGirl.create(:member, name: 'Nuno Nuno', category: 'Interns')
     }
     let!(:joao_silva) {
       FactoryGirl.create(:member, name: 'Joao Silva', is_board_member: true,
@@ -25,6 +26,12 @@ describe Api::V1::MembersController, type: :controller do
         get :index
         parsed_body = JSON.parse(response.body)
         expect(parsed_body.length).to eq(5)
+      end
+
+      it 'sorts by name by default' do
+        get :index
+        parsed_body = JSON.parse(response.body)
+        expect(parsed_body[0]["name"]).to eq(anibal_ze.name)
       end
 
       it 'filters by is_board_member' do

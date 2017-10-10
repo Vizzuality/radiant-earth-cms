@@ -8,12 +8,10 @@ describe Api::V1::MembersController, type: :controller do
       FactoryGirl.create(:member, name: 'Nuno Nuno', category: 'Interns')
     }
     let!(:joao_silva) {
-      FactoryGirl.create(:member, name: 'Joao Silva', is_board_member: true,
-                         category: 'Staff')
+      FactoryGirl.create(:member, name: 'Joao Silva', category: 'Staff')
     }
     let!(:anibal_ze) {
-      FactoryGirl.create(:member, name: 'Anibal Ze', is_board_member: true,
-                         category: 'Staff')
+      FactoryGirl.create(:member, name: 'Anibal Ze', category: 'Staff')
     }
 
     describe 'GET index' do
@@ -32,18 +30,6 @@ describe Api::V1::MembersController, type: :controller do
         get :index
         parsed_body = JSON.parse(response.body)
         expect(parsed_body[0]["name"]).to eq(anibal_ze.name)
-      end
-
-      it 'filters by is_board_member' do
-        get :index, params: { is_board_member: true }
-        parsed_body = JSON.parse(response.body)
-        expect(parsed_body.length).to eq(2)
-      end
-
-      it 'sorts by last name when filtering by is_board_member' do
-        get :index, params: { is_board_member: true }
-        parsed_body = JSON.parse(response.body)
-        expect(parsed_body[0]["name"]).to eq(joao_silva.name)
       end
 
       it 'filters by category' do

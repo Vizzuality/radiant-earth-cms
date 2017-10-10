@@ -1,4 +1,4 @@
-ActiveAdmin.register Member do
+ActiveAdmin.register BoardMember do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
@@ -11,8 +11,7 @@ ActiveAdmin.register Member do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-
-  permit_params :name, :email, :title, :image, :description, :category
+  permit_params :name, :email, :title, :image, :description, :is_board_chair
 
   form do |f|
     f.inputs do
@@ -21,10 +20,9 @@ ActiveAdmin.register Member do
       f.input :title
       f.input :image, as: :file
       f.input :description
-      f.input :category, label: 'Display in category', as: :select,
-        collection: Member::CATEGORIES,
-        hint: 'If both in the board and staff add person also to Board Members'
+      f.input :is_board_chair
       f.actions
     end
   end
+
 end

@@ -1,7 +1,7 @@
 module Api
   module V1
-    class MemberSerializer < ActiveModel::Serializer
-      attributes :name, :email, :title, :description, :category, :image
+    class BoardMemberSerializer < ActiveModel::Serializer
+      attributes :name, :email, :title, :description, :image
 
       def image
         if object.image.present?

@@ -56,6 +56,17 @@ rails server
 
 This CMS is very simple and includes three types of data:
 
+### Board Members
+
+Used to board of directors. The attributes for this model are:
+
+* name [string]
+* email [string]
+* title [string]
+* description [text]
+* is_board_chair [boolean]
+* image [file attachment]
+
 ### Members
 
 Used to represent staff, board of directors and others. The attributes for this
@@ -66,7 +77,6 @@ model are:
 * title [string]
 * category [string] (one of the ones specified inside: [app/models/member.rb](app/models/member.rb) in the constant `CATEGORIES`
 * description [text]
-* is_board_member [boolean] (A user might be in the `Staff` category and also be a `Board Member`). Board members that are just Board members should have this flag set to true and have category `Board of Directors`
 * image [file attachment]
 
 ### Posts
@@ -126,10 +136,17 @@ Posts can be paginated by passing the params:
 
 ### Members
 
-`GET /api/v1/members?is_board_member=x&category=y`
+`GET /api/v1/members?category=y`
 
-Returns all members sorted by `name`. This endpoint also allows filtering by the
-attributes _is_board_member_ and _category_.
+Returns all members sorted by `name`. This endpoint also allows filtering by
+ _category_.
+
+### Board Members
+
+`GET /api/v1/board_members`
+
+Returns all members sorted by `last name` with members with `is_board_chair`
+flag showing up first.
 
 ### Use Cases
 
